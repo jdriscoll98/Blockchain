@@ -63,6 +63,13 @@ class Blockchain {
       if (currentBlock.previousHash !== previousBlock.hash) {
         return false;
       }
+
+      if (
+        currentBlock.hash.substring(0, this.difficulty) !==
+        "0".repeat(this.difficulty)
+      ) {
+        return false;
+      }
     }
 
     return true;
